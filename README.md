@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BookFlow
 
-## Getting Started
+BookFlow is a small booking dashboard I built for local service businesses. The idea is simple: a customer can submit a service request, and an admin can log in to manage those requests from a dashboard.
 
-First, run the development server:
+This project was built to practice working with a full-stack setup using Next.js, Supabase, authentication, database actions, and a clean UI.
+
+## Features
+
+- Customer booking form
+- Admin login
+- Protected admin dashboard
+- View submitted booking requests
+- Update request status
+  - New
+  - Contacted
+  - Completed
+
+- Delete booking requests
+- Basic dashboard stats
+- Responsive layout
+- Supabase database integration
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Supabase Auth
+
+## Pages
+
+- `/` — Homepage
+- `/booking` — Customer booking form
+- `/login` — Admin login
+- `/admin` — Admin dashboard
+
+## How It Works
+
+Customers submit a request through the booking form. The request is saved in a Supabase table. After logging in, the admin can view all requests, update their status, or delete them.
+
+## Environment Variables
+
+Create a `.env.local` file in the root of the project and add:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+Do not commit your real environment variables to GitHub.
+
+## Running the Project Locally
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the app:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Database Table
 
-## Learn More
+The Supabase table is called:
 
-To learn more about Next.js, take a look at the following resources:
+```txt
+booking_requests
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Main fields:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```txt
+id
+full_name
+email
+phone
+service_type
+message
+status
+created_at
+```
 
-## Deploy on Vercel
+## What I Practiced
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+While building this project, I practiced:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Creating pages with the Next.js App Router
+- Using Supabase as a backend
+- Adding authentication with Supabase Auth
+- Reading and writing data from a database
+- Updating and deleting database records
+- Managing form state in React
+- Styling pages with Tailwind CSS
+- Building a project that is closer to a real business use case
+
+## Future Improvements
+
+Some things I could add later:
+
+- Search and filtering in the admin dashboard
+- Email notifications for new requests
+- Better role-based admin permissions
+- A customer confirmation email
+- More detailed request history
+- A cleaner mobile dashboard layout
